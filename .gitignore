@@ -398,3 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 env/
 .venv
+farm/.env
+Mobile_App/Schlime-Mobile-App/Schlime-Mobile-App/appsettings.json
