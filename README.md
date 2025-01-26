@@ -100,6 +100,6 @@ Turn Buzzer off: {"value": "off"}
 
 ## <div align='center'> Contributions
 
-Griffin: Plant subsystem / Viewmodel, UI design, Reading parsing |\
-Carlos: Security subsystem and Viewmodel, small UI changes| \
+Griffin: Plant subsystem / Viewmodel, UI design, Reading parsing \
+Carlos: Security subsystem and Viewmodel, small UI changes \
 William: GeoLocation Subsystem, telemetry -> sending commands and receiving readings through azure
