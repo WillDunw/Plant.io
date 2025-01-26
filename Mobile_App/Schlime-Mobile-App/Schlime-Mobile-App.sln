@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schlime-Mobile-App", "Schlime-Mobile-App\Schlime-Mobile-App.csproj", "{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46DE2807-BE5D-4DCA-B28D-167FDAAC55BC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2A853EC-D06E-4795-953D-D886967F50B1}
+	EndGlobalSection
+EndGlobal

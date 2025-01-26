@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:Schlime_Mobile_App.Converters"
+             xmlns:charts="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             x:Class="Schlime_Mobile_App.Views.PlantPage">
+    <VerticalStackLayout
+        Spacing="10"
+        Padding="10">
+
+        <Label Text="{Binding ViewModel.Name, StringFormat='{0}'}"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*"
+              ColumnSpacing="7" RowSpacing="7">
+
+            <Frame BorderColor="White" CornerRadius="10" BackgroundColor="#141822">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="Temperature"/>
+                    <Label Text="{Binding ViewModel.Temperature, StringFormat='{0}'}"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BorderColor="White" CornerRadius="10" BackgroundColor="#141822"
+                   Grid.Column="1">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="Humidity"/>
+                    <Label Text="{Binding ViewModel.Humidity, StringFormat='{0}%'}"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BorderColor="White" CornerRadius="10" BackgroundColor="#141822"
+                   Grid.Row="1">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="Moisture"/>
+                    <Label Text="{Binding ViewModel.Moisture, StringFormat='{0}'}"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BorderColor="White" CornerRadius="10" BackgroundColor="#141822"
+                   Grid.Row="1" Grid.Column="1">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="Water Level"/>
+                    <Label Text="{Binding ViewModel.WaterLevel, StringFormat='{0}'}"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="7">
+            <Button Text="Toggle Fan" Clicked="Toggle_Fan_Btn"
+                    BackgroundColor="{Binding ViewModel.FanIsOn, Converter={converter:BoolToColor}}"/>
+
+            <Button Text="Toggle Light" Clicked="Toggle_Light_Btn"
+                    BackgroundColor="{Binding ViewModel.LightIsOn, Converter={converter:BoolToColor}}"
+                    Grid.Column="1"/>
+        </Grid>
+
+        <Picker SelectedIndexChanged="Picker_SelectedIndexChanged" 
+                x:Name="Chart_Picker"
+                Title="Select a Chart">
+            <Picker.Items>
+                <x:String>Temperature</x:String>
+                <x:String>Moisture</x:String>
+                <x:String>Humidity</x:String>
+                <x:String>Water Level</x:String>
+            </Picker.Items>
+        </Picker>
+        <VerticalStackLayout VerticalOptions="Start">
+            <charts:CartesianChart x:Name="Chart1"
+                                   Series="{Binding Series}"
+                                   XAxes="{Binding XAxes}"
+                                   YAxes="{Binding YAxes}"
+                                   Title="{Binding Title}"
+                                   ZoomMode="ZoomX" 
+                                   HeightRequest="280"
+                                   BackgroundColor="Transparent"
+                                   />
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Schlime_Mobile_App.Views.LoginPage"
+             Title="">
+    <VerticalStackLayout VerticalOptions="Center" Spacing="20">
+
+        <Frame x:Name="LoginView" Margin="0" BackgroundColor="Transparent" BorderColor="Transparent" >
+            <VerticalStackLayout Spacing="10" Margin="0">
+                <Label HorizontalTextAlignment="Center" FontSize="20" Margin="20">Please sign in to continue.</Label>
+                <Frame BorderColor="#BA7372" BackgroundColor="#151515" Margin="0">
+                    <VerticalStackLayout Spacing="15">
+                        <Frame BorderColor="Transparent" Padding="5" CornerRadius="4" BackgroundColor="#2C2C2C" x:Name="username_border">
+                    <Entry x:Name="user_name" Placeholder="Email"  BackgroundColor="Transparent" Focused="user_name_Focused" Unfocused="user_name_Unfocused"/>
+                </Frame>
+
+                        <Frame BorderColor="Transparent" Padding="5" CornerRadius="4" BackgroundColor="#2C2C2C" x:Name="password_border">
+                    <Entry x:Name="password"  Placeholder="Password"  IsPassword="True" BackgroundColor="Transparent" Focused="password_Focused" Unfocused="password_Unfocused" />
+                </Frame>
+                    
+                <Label x:Name="lblError" TextColor="red" Margin="0,5,0,0"/>
+                <Button  
+                    Text="Login"
+                    FontSize="Medium"
+                    WidthRequest="330" 
+                    HorizontalOptions="Center" 
+                    Margin="0"
+                    HeightRequest="50"
+                    Clicked="Btn_Login_Clicked" 
+                    SemanticProperties.Hint="Click to log in"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <Frame  x:Name="LogoutView" Margin="10" BackgroundColor="Transparent" IsVisible="false">
+
+            <StackLayout>
+                <Label Text="User Details:" FontAttributes="Bold"/>
+                <Label x:Name="lblUser" FontAttributes="Italic" Margin="0,5,0,30"/>
+                <Button Text="Log Out" 
+                        SemanticProperties.Hint="Click to log out"
+                        Clicked="Btn_Logout_Clicked" 
+                        VerticalOptions="CenterAndExpand" 
+                        BackgroundColor="Black"  />
+
+            </StackLayout>
+
+        </Frame>
+
+
+    </VerticalStackLayout>
+</ContentPage>

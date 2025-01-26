@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Schlime_Mobile_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Schlime_Mobile_App"
+    xmlns:views="clr-namespace:Schlime_Mobile_App.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Schlime_Mobile_App">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="LoginView" />
+
+    <TabBar Route="FleetOwner">
+        <!--<ShellContent
+        Title="Geo-Location"
+        ContentTemplate="{DataTemplate views:GeoLocationView}" 
+        Route="GeoLocationView"  />-->
+
+        <ShellContent
+        Title="Security"
+        ContentTemplate="{DataTemplate views:SecurityPage}" 
+        Route="SecurityView"  />
+
+        <ShellContent
+            Title="Account"
+            ContentTemplate="{DataTemplate views:AccountPage}"
+            Route="AccountView" />
+    </TabBar>
+
+    <TabBar Route="Technician">
+        <ShellContent
+        Title="Plant Analytics"
+        ContentTemplate="{DataTemplate views:PlantPage}"
+        Route="PlantView"/>
+
+        <ShellContent
+        Title="Account Details"
+        ContentTemplate="{DataTemplate views:AccountPage}"
+        Route="AccountView" />
+    </TabBar>
+</Shell>

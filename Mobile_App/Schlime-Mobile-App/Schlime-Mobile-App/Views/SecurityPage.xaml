@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Schlime_Mobile_App.Views.SecurityPage"
+             xmlns:converter="clr-namespace:Schlime_Mobile_App.Converters"
+             Title="">
+
+    <VerticalStackLayout Spacing="20" Padding="10">
+        <Frame BorderColor="Black" BackgroundColor="#273043" CornerRadius="4" Padding="0" HeightRequest="75">
+            <Label Text="Container #A6F" FontSize="Title" FontAttributes="Bold"  HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Frame>
+
+        <Frame BorderColor="Black" BackgroundColor="#273043" CornerRadius="4" Padding="10">
+            <VerticalStackLayout HorizontalOptions="Start" Spacing="10" Padding="20">
+
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*"
+                      ColumnSpacing="10" RowSpacing="10">
+
+                    <Frame BorderColor="#e9eaec" BackgroundColor="#141822" CornerRadius="10">
+                        <Label Text="{Binding SecurityViewModel.IsDoorOpen , StringFormat='Door open: {0}'}" 
+                               FontSize="16" HorizontalTextAlignment="Center"/>
+                    </Frame>
+                    <Frame BorderColor="#e9eaec" CornerRadius="10 " BackgroundColor="#141822"
+                           Grid.Column="1">
+                        <Label Text="{Binding GeoLocationViewModel.IsVibrating , StringFormat='Is Vibrating: {0}'}" 
+                               FontSize="16" HorizontalTextAlignment="Center"/>
+                    </Frame>
+
+                    <Frame BorderColor="#e9eaec" BackgroundColor="#141822" CornerRadius="10"
+                           Grid.Column="0" Grid.Row="1">
+                        <Label Text="{Binding SecurityViewModel.IsMotionDetected , StringFormat='Motion: {0}'}" 
+                               FontSize="16"/>
+                    </Frame>
+                    <Frame BorderColor="#e9eaec"  BackgroundColor="#141822" CornerRadius="10"
+                           Grid.Column="1" Grid.Row="1">
+                        <Label Text="{Binding SecurityViewModel.SoundLevel , StringFormat='Sound Level: {0}'}" 
+                               FontSize="16"/>
+                    </Frame>
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="7">
+
+                    <Button Text="Toggle Door Lock" Clicked="Toggle_Lock_Switch"
+                            BackgroundColor="{Binding SecurityViewModel.IsDoorLocked, Converter={converter:BoolToColor}}"/>
+
+                    <Button Text="Toggle Buzzer" Clicked="Toggle_Buzzer_Switch"
+                            BackgroundColor="{Binding SecurityViewModel.IsBuzzing, Converter={converter:BoolToColor}}"
+                            Grid.Column="1"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="Black" BackgroundColor="#273043" CornerRadius="0" Padding="20">
+            <VerticalStackLayout Spacing="20">
+                <VerticalStackLayout BackgroundColor="#1b222f" Padding="0,10,0,10">
+                    <Label Text="Location" FontSize="Large" FontAttributes="Bold" TextDecorations="Underline" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Label Text="{Binding GeoLocationViewModel.RecentLocation, StringFormat='{0}'}" HorizontalOptions="Center" VerticalOptions="Center" />
+                </VerticalStackLayout>
+
+                <Frame CornerRadius="0" Margin="0">
+                    <VerticalStackLayout Spacing="15" x:Name="mainLayout">
+                        <ActivityIndicator IsRunning="true" x:Name="loading_spinner" HeightRequest="40" WidthRequest="40" Margin="0,20,0,0"/>
+                        <Label x:Name="lbl_vibration"/>
+                    </VerticalStackLayout>
+
+                </Frame>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

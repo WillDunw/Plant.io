@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Schlime_Mobile_App.Views.AccountPage">
+    <VerticalStackLayout Spacing="15" Padding="10">
+        <Label 
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            x:Name="lbl_usertype"
+            Text="{Binding UserType.Type, StringFormat='You are currently logged in as a {0}'}"
+            FontSize="Medium"/>
+        <Button Text="Logout"
+                x:Name="btn_logout" 
+                Clicked="btn_logout_Clicked"
+                CornerRadius="10"
+                BackgroundColor="#F19536"/>
+    </VerticalStackLayout>
+</ContentPage>
